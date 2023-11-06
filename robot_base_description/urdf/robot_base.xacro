@@ -1,0 +1,318 @@
+<?xml version="1.0" ?>
+<robot name="robot_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="1.1176054613582522e-16 1.1176054613582522e-16 0.06259442731618944" rpy="0 0 0"/>
+    <mass value="30.66355842709921"/>
+    <inertia ixx="0.624217" iyy="0.926183" izz="1.260699" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_wheel_1">
+  <inertial>
+    <origin xyz="-9.543055706773274e-09 0.031379164945917165 1.4462355957950424e-07" rpy="0 0 0"/>
+    <mass value="0.9491110270115689"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2 -0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.2 -0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_back_wheel_1">
+  <inertial>
+    <origin xyz="-9.543055623506547e-09 0.031379164945917165 1.4462355969399598e-07" rpy="0 0 0"/>
+    <mass value="0.9491110270115704"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2 -0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.2 -0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_wheel_1">
+  <inertial>
+    <origin xyz="2.3498597984117353e-07 -0.031379205219385725 -2.0615769641407766e-07" rpy="0 0 0"/>
+    <mass value="0.9491111934993706"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2 0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.2 0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_back_wheel_1">
+  <inertial>
+    <origin xyz="2.349859797579068e-07 -0.03137920521938578 -2.0615769670898065e-07" rpy="0 0 0"/>
+    <mass value="0.9491111934993672"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2 0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0.2 0.1925 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-0.013608899787078799 -6.565133329182663e-05 0.01161077064572922" rpy="0 0 0"/>
+    <mass value="0.006742869651497941"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.272555 -0.0 -0.052" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.272555 -0.0 -0.052" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_1">
+  <inertial>
+    <origin xyz="9.133494040341198e-05 -1.1999536222967403e-05 0.0008621646654777089" rpy="0 0 0"/>
+    <mass value="0.004997129426507223"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.006" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.006" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.008294099570319548 -2.3249515286534652e-17 0.030201142222791008" rpy="0 0 0"/>
+    <mass value="1.151561654231422"/>
+    <inertia ixx="0.000489" iyy="0.000861" izz="0.000987" ixy="-0.0" iyz="-0.0" ixz="-0.000148"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.106" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver">
+      <color rgba="0.700 0.700 0.700 1.000"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.106" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint_left_front" type="continuous">
+  <origin xyz="0.2 0.1925 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_front_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="joint_left_back" type="continuous">
+  <origin xyz="-0.2 0.1925 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_back_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="joint_right_front" type="continuous">
+  <origin xyz="0.2 -0.1925 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_front_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="joint_right_back" type="continuous">
+  <origin xyz="-0.2 -0.1925 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_back_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="0.272555 0.0 0.052" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.006" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.106" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<gazebo reference="base_link">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="left_front_wheel_1">
+  <material>Gazebo/Black</material>
+  <mu1>10</mu1>
+  <mu2>10</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="left_back_wheel_1">
+  <material>Gazebo/Black</material>
+  <mu1>10</mu1>
+  <mu2>10</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="right_front_wheel_1">
+  <material>Gazebo/Black</material>
+  <mu1>10</mu1>
+  <mu2>10</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="right_back_wheel_1">
+  <material>Gazebo/Black</material>
+  <mu1>10</mu1>
+  <mu2>10</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="camera_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="imu_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>Gazebo/Silver</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+  <gazebo>
+    <plugin name="skid_steer_drive" filename="libgazebo_ros_diff_drive.so">
+      <num_wheel_pairs>2</num_wheel_pairs>
+        
+      <left_joint>joint_left_front</left_joint>
+      <right_joint>joint_right_front</right_joint>
+      <left_joint>joint_left_back</left_joint>
+      <right_joint>joint_right_back</right_joint>
+
+      <wheel_separation>0.385</wheel_separation>
+      <wheel_separation>0.385</wheel_separation>
+
+      <wheel_diameter>0.17</wheel_diameter>
+      <wheel_diameter>0.17</wheel_diameter>
+
+      <max_wheel_torque>500</max_wheel_torque>
+      <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+
+      <publish_odom>true</publish_odom> 
+      <publish_odom_tf>true</publish_odom_tf> 
+      <publish_wheel_tf>true</publish_wheel_tf> 
+    </plugin>
+  </gazebo>
+
+</robot>
