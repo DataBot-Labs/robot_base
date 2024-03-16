@@ -2,18 +2,17 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>robot_base_description</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <version>1.0.0</version>
+  <description>Robot Description Package</description>
   <maintainer email="nilutpolkashyap@todo.todo">Nilutpol Kashyap</maintainer>
-
-  <maintainer email="bvdhaagen@todo.todo">bvdhaagen</maintainer>
-
-  <license>TODO: License declaration</license>
+  <license>MIT License</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>urdf</depend>
   <depend>xacro</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>tf2</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
