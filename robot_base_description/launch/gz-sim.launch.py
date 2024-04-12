@@ -1,5 +1,5 @@
 import launch
-from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution, PythonExpression
 import launch_ros
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
@@ -16,7 +16,7 @@ def generate_launch_description():
     robot_name_in_model = 'robot_base'
     robot_model_path = 'urdf/robot_base.xacro'
     rviz_config_path = 'config/rviz_default.rviz'
-    world_file_path = 'worlds/empty.sdf'
+    world_file_path = 'worlds/empty_world.sdf'
 
     # Pose where to spawn the robot
     spawn_x_val = '0.0'
@@ -94,7 +94,7 @@ def generate_launch_description():
     # Start Ignition Gazebo
     start_gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gz_sim_ros, 'launch', 'gz_sim.launch.py')),
-        launch_arguments={"gz_args": world}.items(),
+        launch_arguments={"gz_args" : PythonExpression(["'", world, " -r'"])}.items()
         )
 
     # Spawn robot

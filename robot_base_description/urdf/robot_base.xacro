@@ -2,20 +2,20 @@
 <robot name="robot_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find robot_base_description)/urdf/materials.xacro" />
-<!-- <xacro:include filename="$(find robot_base_description)/urdf/robot_base.trans" />
-<xacro:include filename="$(find robot_base_description)/urdf/robot_base.gazebo" /> -->
+<!-- <xacro:include filename="$(find robot_base_description)/urdf/robot_base.trans" /> -->
+<xacro:include filename="$(find robot_base_description)/urdf/robot_base.gazebo" /> 
 <link name="base_link">
   <inertial>
-    <origin xyz="0.006010434850842306 4.004864233089688e-07 0.13434207950453161" rpy="0 0 0"/>
-    <mass value="45.929921070675896"/>
-    <inertia ixx="1.062437" iyy="1.749946" izz="2.531226" ixy="-0.000378" iyz="-0.000123" ixz="0.01419"/>
+    <origin xyz="0.006873944780110744 4.580236914566031e-07 0.1220357378331037" rpy="0 0 0"/>
+    <mass value="40.16017107067584"/>
+    <inertia ixx="0.955104" iyy="1.642374" izz="2.413188" ixy="-0.000378" iyz="-0.000123" ixz="0.010792"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="steel_satin"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -36,7 +36,7 @@
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/left_front_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="opaque252525"/>
   </visual>
   <collision>
     <origin xyz="-0.19 -0.1805 -0.08" rpy="0 0 0"/>
@@ -57,33 +57,12 @@
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/left_back_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="opaque252525"/>
   </visual>
   <collision>
     <origin xyz="0.19 -0.1805 -0.08" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/left_back_wheel.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="right_back_wheel">
-  <inertial>
-    <origin xyz="2.3498597973015123e-07 -0.03137920521938581 -2.0518912122180488e-07" rpy="0 0 0"/>
-    <mass value="0.9491111934993678"/>
-    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -99,7 +78,7 @@
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/right_front_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="opaque252525"/>
   </visual>
   <collision>
     <origin xyz="-0.19 0.1805 -0.08" rpy="0 0 0"/>
@@ -109,72 +88,30 @@
   </collision>
 </link>
 
-<link name="zed_mini">
+<link name="right_back_wheel">
   <inertial>
-    <origin xyz="0.006890809169695311 -0.0011814639225888749 0.013252607692305629" rpy="0 0 0"/>
-    <mass value="0.44647457908999766"/>
-    <inertia ixx="0.000586" iyy="4.3e-05" izz="0.000583" ixy="6e-06" iyz="-0.0" ixz="0.0"/>
+    <origin xyz="2.3498597973015123e-07 -0.03137920521938581 -2.0518912122180488e-07" rpy="0 0 0"/>
+    <mass value="0.9491111934993678"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
-    <origin xyz="-0.2525 -0.0 -0.1085" rpy="0 0 0"/>
+    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/zed_mini.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="opaque252525"/>
   </visual>
   <collision>
-    <origin xyz="-0.2525 -0.0 -0.1085" rpy="0 0 0"/>
+    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/zed_mini.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="logo">
-  <inertial>
-    <origin xyz="-0.0030148374702534397 -0.0009578344360897588 -0.0011300936134206602" rpy="0 0 0"/>
-    <mass value="0.07125256946293511"/>
-    <inertia ixx="4e-05" iyy="8e-06" izz="3.3e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.26 -0.0 -0.08975" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/logo.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.26 -0.0 -0.08975" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/logo.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="jetson">
-  <inertial>
-    <origin xyz="-0.001882812378843579 -0.0012117915536683699 0.009224709951320367" rpy="0 0 0"/>
-    <mass value="0.3773808086312594"/>
-    <inertia ixx="0.000236" iyy="0.000221" izz="0.000415" ixy="6e-06" iyz="4e-06" ixz="1.9e-05"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/jetson.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find robot_base_description)/meshes/jetson.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_back_wheel.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 <link name="lidar">
   <inertial>
-    <origin xyz="0.041705900429680434 -3.652874609497409e-17 0.03970114222279103" rpy="0 0 0"/>
+    <origin xyz="-0.008294099570319567 -3.8749192144224396e-17 0.05020114222279101" rpy="0 0 0"/>
     <mass value="1.1515616542314224"/>
     <inertia ixx="0.000489" iyy="0.000861" izz="0.000987" ixy="-0.0" iyz="-0.0" ixz="-0.000148"/>
   </inertial>
@@ -183,7 +120,7 @@
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="steel_satin"/>
   </visual>
   <collision>
     <origin xyz="-0.0 -0.0 -0.141" rpy="0 0 0"/>
@@ -193,9 +130,30 @@
   </collision>
 </link>
 
+<link name="jetson">
+  <inertial>
+    <origin xyz="-0.02188281237884354 -0.001111791553668372 0.009224709951320367" rpy="0 0 0"/>
+    <mass value="0.3773808086312594"/>
+    <inertia ixx="0.000236" iyy="0.000221" izz="0.000415" ixy="6e-06" iyz="4e-06" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/jetson.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque252525"/>
+  </visual>
+  <collision>
+    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/jetson.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
 <link name="imu">
   <inertial>
-    <origin xyz="-0.00998812297806373 9.133494040341156e-05 0.000862164665477741" rpy="0 0 0"/>
+    <origin xyz="-0.01898812297806371 9.133494040341156e-05 0.000862164665477741" rpy="0 0 0"/>
     <mass value="0.004997129426507204"/>
     <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
@@ -204,12 +162,201 @@
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/imu.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="opaque252525"/>
   </visual>
   <collision>
     <origin xyz="0.164479 -0.0 -0.108" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find robot_base_description)/meshes/imu.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_plate">
+  <inertial>
+    <origin xyz="-0.00500000000000006 -2.416750931496303e-16 0.05201635561346364" rpy="0 0 0"/>
+    <mass value="1.8028979735720785"/>
+    <inertia ixx="0.02436" iyy="0.001727" izz="0.022643" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/front_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/front_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_plate">
+  <inertial>
+    <origin xyz="0.003999999999999948 -2.6213617996365013e-16 0.052162485409430734" rpy="0 0 0"/>
+    <mass value="1.9065179735720788"/>
+    <inertia ixx="0.025647" iyy="0.001735" izz="0.023924" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/rear_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/rear_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_plate">
+  <inertial>
+    <origin xyz="-0.0010632594372099004 0.002000000000000085 0.06859611162847648" rpy="0 0 0"/>
+    <mass value="2.2154231115200234"/>
+    <inertia ixx="0.002726" iyy="0.075573" izz="0.07286" ixy="0.0" iyz="0.0" ixz="-2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.24 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.24 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/right_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_plate">
+  <inertial>
+    <origin xyz="-0.001063259437208634 -0.0019999999999998908 0.06859611162847654" rpy="0 0 0"/>
+    <mass value="2.2154231115200127"/>
+    <inertia ixx="0.002726" iyy="0.075573" izz="0.07286" ixy="-0.0" iyz="-0.0" ixz="-2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.24 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.24 -0.065" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/left_plate.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_cover">
+  <inertial>
+    <origin xyz="-0.16950000288337444 0.17099999714191824 0.003000000000000058" rpy="0 0 0"/>
+    <mass value="5.769750000000013"/>
+    <inertia ixx="0.058917" iyy="0.058917" izz="0.117799" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1695 0.171 -0.2165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/top_cover.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1695 0.171 -0.2165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/top_cover.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mount_link">
+  <inertial>
+    <origin xyz="-2.883374428108709e-09 -2.8580817870224923e-09 5.000000000421334e-07" rpy="0 0 0"/>
+    <mass value="0.00013256683868399403"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/mount_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/mount_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="zed_mini">
+  <inertial>
+    <origin xyz="0.00964080916969523 -0.001181463922588793 3.0931017364205227e-06" rpy="0 0 0"/>
+    <mass value="0.44647457908999877"/>
+    <inertia ixx="0.000586" iyy="4.3e-05" izz="0.000583" ixy="6e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.318 -0.0 -0.123162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/zed_mini.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.318 -0.0 -0.123162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/zed_mini.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo1">
+  <inertial>
+    <origin xyz="-0.0019156108884701329 1.4820909830542961e-05 -0.0022597239069505892" rpy="0 0 0"/>
+    <mass value="0.2850094860122326"/>
+    <inertia ixx="0.00012" iyy="0.000641" izz="0.000525" ixy="-1e-06" iyz="-1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000656 0.241 -0.125587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/logo1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000656 0.241 -0.125587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/logo1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo2">
+  <inertial>
+    <origin xyz="0.0019161100723117043 -1.4820909830431939e-05 -0.0022597239069501313" rpy="0 0 0"/>
+    <mass value="0.2850094860122332"/>
+    <inertia ixx="0.00012" iyy="0.000641" izz="0.000525" ixy="-1e-06" iyz="1e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000656 -0.241 -0.125587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/logo2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000656 -0.241 -0.125587" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find robot_base_description)/meshes/logo2.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -228,36 +375,18 @@
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="right_back_joint" type="continuous">
-  <origin xyz="-0.19 -0.1805 0.08" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="right_back_wheel"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-</joint>
-
 <joint name="right_front_joint" type="continuous">
   <origin xyz="0.19 -0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="right_front_wheel"/>
-  <axis xyz="0.0 -1.0 0.0"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="zed_mini_joint" type="fixed">
-  <origin xyz="0.2525 0.0 0.1085" rpy="0 0 0"/>
+<joint name="right_back_joint" type="continuous">
+  <origin xyz="-0.19 -0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
-  <child link="zed_mini"/>
-</joint>
-
-<joint name="logo_joint" type="fixed">
-  <origin xyz="0.26 0.0 0.08975" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="logo"/>
-</joint>
-
-<joint name="jetson_joint" type="fixed">
-  <origin xyz="-0.230479 0.0 0.108" rpy="0 0 0"/>
-  <parent link="base_link"/>
-  <child link="jetson"/>
+  <child link="right_back_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="lidar_joint" type="fixed">
@@ -266,110 +395,70 @@
   <child link="lidar"/>
 </joint>
 
+<joint name="jetson_joint" type="fixed">
+  <origin xyz="-0.230479 0.0 0.108" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="jetson"/>
+</joint>
+
 <joint name="imu_joint" type="fixed">
   <origin xyz="-0.164479 0.0 0.108" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="imu"/>
 </joint>
 
-<gazebo reference="base_link">
-    <visual>
-    <material>
-        <ambient>1.0 0.0 0.0 1.0</ambient>
-        <diffuse>1.0 0.0 0.0 1.0</diffuse>
-        <specular>1.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="front_plate_joint" type="fixed">
+  <origin xyz="0.32 0.0 0.071" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_plate"/>
+</joint>
 
-<gazebo reference="left_front_wheel">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 0.0 1.0</ambient>
-        <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        <specular>0.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="rear_plate_joint" type="fixed">
+  <origin xyz="-0.32 0.0 0.071" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_plate"/>
+</joint>
 
-<gazebo reference="left_back_wheel">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 0.0 1.0</ambient>
-        <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        <specular>0.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="right_plate_joint" type="fixed">
+  <origin xyz="0.0 -0.24 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_plate"/>
+</joint>
 
-<gazebo reference="right_front_wheel">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 0.0 1.0</ambient>
-        <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        <specular>0.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="left_plate_joint" type="fixed">
+  <origin xyz="0.0 0.24 0.065" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_plate"/>
+</joint>
 
-<gazebo reference="right_back_wheel">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 0.0 1.0</ambient>
-        <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        <specular>0.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="top_cover_joint" type="fixed">
+  <origin xyz="0.1695 -0.171 0.2165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="top_cover"/>
+</joint>
 
-<gazebo reference="logo">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 0.0 1.0</ambient>
-        <diffuse>0.0 0.0 0.0 1.0</diffuse>
-        <specular>0.0 0.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="mount_joint" type="fixed">
+  <origin xyz="-0.1695 0.171 0.01" rpy="0 0 0"/>
+  <parent link="top_cover"/>
+  <child link="mount_link"/>
+</joint>
 
-<gazebo reference="lidar">
-    <visual>
-    <material>
-        <ambient>0.0 0.0 1.0 1.0</ambient>
-        <diffuse>0.0 0.0 1.0 1.0</diffuse>
-        <specular>0.0 0.0 1.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="zed_mini_joint" type="fixed">
+  <origin xyz="-0.002 0.0 0.052162" rpy="0 0 0"/>
+  <parent link="front_plate"/>
+  <child link="zed_mini"/>
+</joint>
 
-<gazebo reference="imu">
-    <visual>
-    <material>
-        <ambient>0.0 1.0 0.0 1.0</ambient>
-        <diffuse>0.0 1.0 0.0 1.0</diffuse>
-        <specular>0.0 1.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="logo1_joint" type="fixed">
+  <origin xyz="-0.000656 -0.001 0.060587" rpy="0 0 0"/>
+  <parent link="right_plate"/>
+  <child link="logo1"/>
+</joint>
 
-<gazebo reference="jetson">
-    <visual>
-    <material>
-        <ambient>0.0 1.0 0.0 1.0</ambient>
-        <diffuse>0.0 1.0 0.0 1.0</diffuse>
-        <specular>0.0 1.0 0.0 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
-
-<gazebo reference="zed_mini">
-    <visual>
-    <material>
-        <ambient>0.752 0.752 0.752 1.0</ambient>
-        <diffuse>0.752 0.752 0.752 1.0</diffuse>
-        <specular>0.752 0.752 0.752 1.0</specular>
-    </material>
-    </visual>
-</gazebo>
+<joint name="logo2_joint" type="fixed">
+  <origin xyz="-0.000656 0.001 0.060587" rpy="0 0 0"/>
+  <parent link="left_plate"/>
+  <child link="logo2"/>
+</joint>
 
 </robot>
