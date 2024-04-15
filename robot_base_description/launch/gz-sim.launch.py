@@ -43,7 +43,7 @@ def generate_launch_description():
     # Declare the launch arguments
     declare_use_sim_time = DeclareLaunchArgument(
         name='use_sim_time',
-        default_value='False',
+        default_value='True',
         description='Use simulation (Gazebo) clock if true')
 
     declare_robot_model_path = DeclareLaunchArgument(
@@ -111,6 +111,42 @@ def generate_launch_description():
             '-P', spawn_pitch_val,
             '-Y', spawn_yaw_val],
         output='screen')
+    
+    gz_ros2_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+            "/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry",
+            "/model/robot_base/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
+            "/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan",
+            # "/kinect_camera@sensor_msgs/msg/Image[ignition.msgs.Image",
+            # "/stereo_camera/left/image_raw@sensor_msgs/msg/Image[ignition.msgs.Image",
+            # "stereo_camera/right/image_raw@sensor_msgs/msg/Image[ignition.msgs.Image",
+            # "kinect_camera/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo",
+            # "stereo_camera/left/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo",
+            # "stereo_camera/right/camera_info@sensor_msgs/msg/CameraInfo[ignition.msgs.CameraInfo",
+            # "/kinect_camera/points@sensor_msgs/msg/PointCloud2[ignition.msgs.PointCloudPacked",
+            "/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU",
+            # "/model/robot_base/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model"
+        ],
+        remappings=[
+            # ('/world/default/model/bcr_bot/joint_state', 'bcr_bot/joint_states'),
+            # ('/odom', 'bcr_bot/odom'),
+            ('/model/robot_base/tf', '/tf')
+            # ('/scan', 'bcr_bot/scan'),
+            # ('/kinect_camera', 'bcr_bot/kinect_camera'),
+            # ('/stereo_camera/left/image_raw', 'bcr_bot/stereo_camera/left/image_raw'),
+            # ('/stereo_camera/right/image_raw', 'bcr_bot/stereo_camera/right/image_raw'),
+            # ('/imu', 'bcr_bot/imu'),
+            # ('/cmd_vel', 'bcr_bot/cmd_vel'),
+            # ('kinect_camera/camera_info', 'bcr_bot/kinect_camera/camera_info'),
+            # ('stereo_camera/left/camera_info', 'bcr_bot/stereo_camera/left/camera_info'),
+            # ('stereo_camera/right/camera_info', 'bcr_bot/stereo_camera/right/camera_info'),
+            # ('/kinect_camera/points', 'bcr_bot/kinect_camera/points'),
+        ]
+    )
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -128,5 +164,6 @@ def generate_launch_description():
     ld.add_action(start_joint_state_publisher_node)
     ld.add_action(start_rviz_node)
     ld.add_action(spawn_entity)
+    ld.add_action(gz_ros2_bridge)
     
     return ld
