@@ -16,5 +16,13 @@
 <material name="opaque191191191">
   <color rgba="0.7490196078431373 0.7490196078431373 0.7490196078431373 1.0"/>
 </material>
-
+<material name="iron">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+<material name="blue">
+  <color rgba="0.200 0.000 0.700 1.000"/>
+</material>
+<material name="black">
+  <color rgba="0 0 0 1"/>
+</material>
 </robot>
