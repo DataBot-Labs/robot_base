@@ -29,20 +29,23 @@ namespace hoverboard_hardware_interface
     class HoverboardHardwareInterface : public hardware_interface::SystemInterface
     {
         struct HardwareConfig
-        {
-            std::string leftWheelJointName = "left_front_wheel_joint";
-            std::string rightWheelJointName = "right_front_wheel_joint";
+{
+    std::string frontLeftWheelJointName = "front_left_wheel_joint";
+    std::string frontRightWheelJointName = "front_right_wheel_joint";
+    std::string backLeftWheelJointName = "back_left_wheel_joint";
+    std::string backRightWheelJointName = "back_right_wheel_joint";
 
-            float loopRate = 30.0;
-            int encoderTicksPerRevolution = 1024;
-        };
+    float loopRate = 30.0;
+    int encoderTicksPerRevolution = 1024;
+};
 
-        struct SerialPortConfig
-        {
-            std::string device = "/dev/ttyUSB0";
-            int baudRate = 115200;
-            int timeout = 1000;
-        };
+struct SerialPortConfig
+{
+    std::string frontDevice = "/dev/ttyUSB0";
+    std::string backDevice = "/dev/ttyUSB1";
+    int baudRate = 115200;
+    int timeout = 1000;
+};
 
     public:
         RCLCPP_SHARED_PTR_DEFINITIONS(HoverboardHardwareInterface)
@@ -67,17 +70,20 @@ namespace hoverboard_hardware_interface
 
         void motorWheelFeedbackCallback(MotorWheelFeedback);
 
-    private:
+private:
+    SerialPortService frontSerialPortService;
+    SerialPortService backSerialPortService;
 
-        SerialPortService serialPortService;
+    HardwareConfig hardwareConfig;
+    SerialPortConfig serialPortConfig;
 
-        HardwareConfig hardwareConfig;
-        SerialPortConfig serialPortConfig;
+    MotorWheel frontLeftWheel;
+    MotorWheel frontRightWheel;
+    MotorWheel backLeftWheel;
+    MotorWheel backRightWheel;
 
-        MotorWheel leftWheel;
-        MotorWheel rightWheel;
+    bool connect();
+    bool disconnect();
 
-        bool connect();
-        bool disconnect();
     };
 }

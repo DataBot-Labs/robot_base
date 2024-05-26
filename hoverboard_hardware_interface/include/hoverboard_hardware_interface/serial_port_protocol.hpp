@@ -18,14 +18,15 @@
 
 #define HEAD_FRAME 0xABCD
 
-// enum class MOTOR_STATES {
-//     UNOCUPPIED = 0b00,
-//     RUN = 0b01,
-//     BRAKE = 0b11,
-//     LOCK_SHAFT = 0b10,
-// };
+enum class MOTOR_STATES {
+    UNOCUPPIED = 0b00,
+    RUN = 0b01,
+    BRAKE = 0b11,
+    LOCK_SHAFT = 0b10,
+};
 
 typedef struct {
+    uint8_t hoverboard_id; // Identifier for the hoverboard
     uint16_t head;
     int16_t  command1;
     int16_t  command2;
@@ -40,8 +41,10 @@ typedef struct {
 } MotorWheelFeedback;
 
 typedef struct {
+    uint8_t hoverboard_id; // Identifier for the hoverboard
     uint16_t head = HEAD_FRAME;
     int16_t  steer;
     int16_t  speed;
     uint16_t checksum;
 } MotorWheelDriveControl;
+
