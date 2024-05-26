@@ -22,8 +22,8 @@ namespace hoverboard_hardware_interface
             return hardware_interface::CallbackReturn::ERROR;
         }
 
-        hardwareConfig.leftWheelJointName = info.hardware_parameters.at("left_wheel_joint_name");
-        hardwareConfig.rightWheelJointName = info.hardware_parameters.at("right_wheel_joint_name");
+        hardwareConfig.leftWheelJointName = info.hardware_parameters.at("left_front_wheel_joint_name");
+        hardwareConfig.rightWheelJointName = info.hardware_parameters.at("right_front_wheel_joint_name");
         hardwareConfig.loopRate = std::stof(info.hardware_parameters.at("loop_rate"));
         // hardwareConfig.encoderTicksPerRevolution = std::stoi(info.hardware_parameters.at("encoder_ticks_per_revolution"));
 
@@ -31,9 +31,9 @@ namespace hoverboard_hardware_interface
         serialPortConfig.baudRate = std::stoi(info.hardware_parameters.at("baud_rate"));
         serialPortConfig.timeout = std::stoi(info.hardware_parameters.at("timeout"));
 
-        leftWheel = MotorWheel(info.hardware_parameters.at("left_wheel_joint_name"), 
+        leftWheel = MotorWheel(info.hardware_parameters.at("left_front_wheel_joint_name"), 
                                 std::stoi(info.hardware_parameters.at("encoder_ticks_per_revolution")));
-        rightWheel = MotorWheel(info.hardware_parameters.at("right_wheel_joint_name"), 
+        rightWheel = MotorWheel(info.hardware_parameters.at("right_front_wheel_joint_name"), 
                                 std::stoi(info.hardware_parameters.at("encoder_ticks_per_revolution")));
 
         for (const hardware_interface::ComponentInfo & joint : info.joints)
