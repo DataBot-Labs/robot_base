@@ -1284,28 +1284,28 @@
   </collision>
 </link>
 
-<joint name="left_front_joint" type="continuous">
+<joint name="left_front_wheel_joint" type="continuous">
   <origin xyz="0.19 0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="left_front_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="left_back_joint" type="continuous">
+<joint name="left_back_wheel_joint" type="continuous">
   <origin xyz="-0.19 0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="left_back_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="right_front_joint" type="continuous">
+<joint name="right_front_wheel_joint" type="continuous">
   <origin xyz="0.19 -0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="right_front_wheel"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="right_back_joint" type="continuous">
+<joint name="right_back_wheel_joint" type="continuous">
   <origin xyz="-0.19 -0.1805 0.08" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="right_back_wheel"/>
