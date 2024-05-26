@@ -10,8 +10,8 @@ controller_manager:
 
 hoverboard_base_controller:
   ros__parameters:
-    left_wheel_names: ["left_front_wheel_joint"]
-    right_wheel_names: ["right_front_wheel_joint" ]
+    left_wheel_names: ["left_front_wheel_joint", "left_back_wheel_joint"]
+    right_wheel_names: ["right_front_wheel_joint", "right_back_wheel_joint"]
 
     wheel_separation: 0.44
     wheels_per_side: 1  
