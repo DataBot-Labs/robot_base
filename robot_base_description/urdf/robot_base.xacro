@@ -7,18 +7,20 @@
 <xacro:include filename="$(find robot_base_description)/urdf/ros2_control.xacro" />
 <xacro:include filename="$(find robot_base_description)/urdf/robot_base.gazebo" /> 
 
-<!-- Define the front and back serial devices -->
-  <xacro:property name="front_device" value="/dev/ttyUSB0"/>
-  <xacro:property name="back_device" value="/dev/ttyUSB1"/>
+<!-- Define the front and back serial devices 
+  <xacro:property name="front_device" value="/dev/ttyUSB0"/> 
+  <xacro:property name="back_device" value="/dev/ttyUSB1"/>  -->
 
 
-<!-- Include the hoverboard_ros2_control macro with front and back devices -->
+<!-- Include the hoverboard_ros2_control macro with front and back devices 
   <xacro:macro name="include_hoverboard_ros2_control" params="front_device back_device">
-  <xacro:hoverboard_ros2_control name="Hoverboard_robot" front_device="${front_device}" back_device="${back_device}"/>
-  </xacro:macro>
+  <xacro:hoverboard_ros2_control name="hoverboard_ros2_control" front_device="${front_device}" back_device="${back_device}"/>
+  </xacro:macro>    
 
-<xacro:include_hoverboard_ros2_control front_device="${front_device}" back_device="${back_device}"/>
+ <xacro:include_hoverboard_ros2_control front_device="${front_device}" back_device="${back_device}"/> 
   
+  -->
+
 <link name="base_link">
   
   <visual>
@@ -1666,7 +1668,7 @@
   <child link="shoulder_bearling_house_prt2_v1_1"/>
 </joint>
 
-
-<xacro:hoverboard_ros2_control name="Hoverboard" front_device="$(front_device)" back_device="$(back_device)"/>
+<xacro:hoverboard_ros2_control name="Hoverboard" />
+<!-- <xacro:include_hoverboard_ros2_control front_device="${front_device}" back_device="${back_device}"/> -->
 
 </robot>
