@@ -22,12 +22,12 @@ namespace hoverboard_hardware_interface
             return hardware_interface::CallbackReturn::ERROR;
         }
 
-        hardwareConfig.frontLeftWheelJointName = info.hardware_parameters.at("front_left_wheel_joint_name");
-        hardwareConfig.frontRightWheelJointName = info.hardware_parameters.at("front_right_wheel_joint_name");
-        hardwareConfig.backLeftWheelJointName = info.hardware_parameters.at("back_left_wheel_joint_name");
-        hardwareConfig.backRightWheelJointName = info.hardware_parameters.at("back_right_wheel_joint_name");
+        hardwareConfig.frontLeftWheelJointName = info.hardware_parameters.at("left_front_wheel_joint_name");
+        hardwareConfig.frontRightWheelJointName = info.hardware_parameters.at("right_front_wheel_joint_name");
+        hardwareConfig.backLeftWheelJointName = info.hardware_parameters.at("left_back_wheel_joint_name");
+        hardwareConfig.backRightWheelJointName = info.hardware_parameters.at("right_back_wheel_joint_name");
         hardwareConfig.loopRate = std::stof(info.hardware_parameters.at("loop_rate"));
-        hardwareConfig.encoderTicksPerRevolution = std::stoi(info.hardware_parameters.at("encoder_ticks_per_revolution"));
+        //hardwareConfig.encoderTicksPerRevolution = std::stoi(info.hardware_parameters.at("encoder_ticks_per_revolution"));
 
         serialPortConfig.frontDevice = info.hardware_parameters.at("front_device");
         serialPortConfig.backDevice = info.hardware_parameters.at("back_device");
@@ -217,7 +217,13 @@ namespace hoverboard_hardware_interface
 
         RCLCPP_INFO(rclcpp::get_logger("SerialPortService"), "Front: %i %i", frontMotorWheelDriveControl.speed, frontMotorWheelDriveControl.steer);
         RCLCPP_INFO(rclcpp::get_logger("SerialPortService"), "Back: %i %i", backMotorWheelDriveControl.speed, backMotorWheelDriveControl.steer);
-
+        
+        RCLCPP_INFO(rclcpp::get_logger("SerialPortService"), "Sending front motor commands: speed=%i, steer=%i", frontMotorWheelDriveControl.speed, frontMotorWheelDriveControl.steer);
+        RCLCPP_INFO(rclcpp::get_logger("SerialPortService"), "Sending back motor commands: speed=%i, steer=%i", backMotorWheelDriveControl.speed, backMotorWheelDriveControl.steer);
+        
+        RCLCPP_INFO(rclcpp::get_logger("HoverboardHardwareInterface"), "Writing commands to motors...");
+        
+        
         frontSerialPortService.write(reinterpret_cast<const char*>(&frontMotorWheelDriveControl), sizeof(MotorWheelDriveControl));
         backSerialPortService.write(reinterpret_cast<const char*>(&backMotorWheelDriveControl), sizeof(MotorWheelDriveControl));
 

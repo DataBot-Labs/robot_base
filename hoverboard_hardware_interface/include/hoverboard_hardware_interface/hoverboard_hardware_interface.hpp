@@ -30,10 +30,10 @@ namespace hoverboard_hardware_interface
     {
         struct HardwareConfig
 {
-    std::string frontLeftWheelJointName = "front_left_wheel_joint";
-    std::string frontRightWheelJointName = "front_right_wheel_joint";
-    std::string backLeftWheelJointName = "back_left_wheel_joint";
-    std::string backRightWheelJointName = "back_right_wheel_joint";
+    std::string frontLeftWheelJointName = "left_front_wheel_joint";
+    std::string frontRightWheelJointName = "right_front_wheel_joint";
+    std::string backLeftWheelJointName = "left_back_wheel_joint";
+    std::string backRightWheelJointName = "right_back_wheel_joint";
 
     float loopRate = 30.0;
     int encoderTicksPerRevolution = 1024;
