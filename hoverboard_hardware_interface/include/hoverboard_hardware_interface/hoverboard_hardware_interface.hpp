@@ -21,28 +21,34 @@
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
 #include "pluginlib/class_list_macros.hpp"
 
-#include "serial_port_service.hpp"
-#include "motor_wheel.hpp"
+#include "serial_port_service_front.hpp"
+#include "serial_port_service_back.hpp"
+
+#include "motor_wheel_front.hpp"
+#include "motor_wheel_back.hpp"
 
 namespace hoverboard_hardware_interface
 {
     class HoverboardHardwareInterface : public hardware_interface::SystemInterface
     {
         struct HardwareConfig
-        {
-            std::string leftWheelJointName = "left_front_wheel_joint";
-            std::string rightWheelJointName = "right_front_wheel_joint";
+{
+    std::string frontLeftWheelJointName = "left_front_wheel_joint";
+    std::string frontRightWheelJointName = "right_front_wheel_joint";
+    std::string backLeftWheelJointName = "left_back_wheel_joint";
+    std::string backRightWheelJointName = "right_back_wheel_joint";
 
-            float loopRate = 30.0;
-            int encoderTicksPerRevolution = 1024;
-        };
+    float loopRate = 30.0;
+    int encoderTicksPerRevolution = 1024;
+};
 
-        struct SerialPortConfig
-        {
-            std::string device = "/dev/ttyUSB0";
-            int baudRate = 115200;
-            int timeout = 1000;
-        };
+struct SerialPortConfig
+{
+    std::string frontDevice = "/dev/ttyUSB0";
+    std::string backDevice = "/dev/ttyUSB1";
+    int baudRate = 115200;
+    int timeout = 1000;
+};
 
     public:
         RCLCPP_SHARED_PTR_DEFINITIONS(HoverboardHardwareInterface)
@@ -67,17 +73,20 @@ namespace hoverboard_hardware_interface
 
         void motorWheelFeedbackCallback(MotorWheelFeedback);
 
-    private:
+private:
+    SerialPortServiceFront frontSerialPortService;
+    SerialPortServiceBack backSerialPortService;
 
-        SerialPortService serialPortService;
+    HardwareConfig hardwareConfig;
+    SerialPortConfig serialPortConfig;
 
-        HardwareConfig hardwareConfig;
-        SerialPortConfig serialPortConfig;
+    MotorWheelFront frontLeftWheel;
+    MotorWheelFront frontRightWheel;
+    MotorWheelBack backLeftWheel;
+    MotorWheelBack backRightWheel;
 
-        MotorWheel leftWheel;
-        MotorWheel rightWheel;
+    bool connect();
+    bool disconnect();
 
-        bool connect();
-        bool disconnect();
     };
 }
