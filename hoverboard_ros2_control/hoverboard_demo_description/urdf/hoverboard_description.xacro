@@ -19,7 +19,11 @@
     <xacro:property name="caster_wheel_diameter" value="0.09" />
     <xacro:property name="caster_wheel_weight" value="0.1" />
 
+    
     <link name="base_link">
+    </link>
+
+    <link name="base_footprint">
     </link>
 
     <link name="plate">
@@ -191,6 +195,12 @@
         <origin rpy="0 0 0" xyz="0 0 0" />
         <parent link="base_link" />
         <child link="plate" />
+    </joint>
+    
+    <joint name="base_link_print_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_link" />
+        <child link="base_footprint" />
     </joint>
     
     <joint name="lidar_joint" type="fixed">
